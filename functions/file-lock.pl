@@ -5,7 +5,7 @@ use Fcntl qw(:flock SEEK_END);
 
 sub lock {
     my ($fh) = @_;
-    flock( $fh, LOCK_EX ) or die "Cannot lock mailbox - $!\n";
+    flock( $fh, LOCK_EX|LOCK_NB ) or die "Cannot lock mailbox - $!\n";
 }
 
 sub unlock {
