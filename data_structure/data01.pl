@@ -27,11 +27,11 @@ location {
   location: "hostname"
   interface {
     name: "eth0"
-    address: "10.16.96.11"
+    address: "ip"
   }
   interface {
     name: "ilo"
-    address: "10.16.112.111"
+    address: "ip"
   }
 }
 
@@ -39,10 +39,10 @@ location {
   location: "hostname1"
   interface {
     name: "eth0"
-    address: "10.16.96.11"
+    address: "ip"
   }
   interface {
     name: "ilo"
-    address: "10.16.112.111"
+    address: "ip"
   }
 }
