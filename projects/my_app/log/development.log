@@ -1,0 +1,17 @@
+[Wed May 13 13:15:17 2015] [info] Listening at "http://*:3000".
+[Wed May 13 13:15:31 2015] [debug] Your secret passphrase needs to be changed!!!
+[Wed May 13 13:15:31 2015] [debug] GET "/".
+[Wed May 13 13:15:31 2015] [debug] Routing to controller "MyApp::Example" and action "welcome".
+[Wed May 13 13:15:31 2015] [debug] Rendering template "example/welcome.html.ep".
+[Wed May 13 13:15:31 2015] [debug] Rendering template "layouts/default.html.ep".
+[Wed May 13 13:15:31 2015] [debug] 200 OK (0.006491s, 154.059/s).
+[Wed May 13 13:15:36 2015] [debug] GET "/".
+[Wed May 13 13:15:36 2015] [debug] Routing to controller "MyApp::Example" and action "welcome".
+[Wed May 13 13:15:36 2015] [debug] Rendering cached template "example/welcome.html.ep".
+[Wed May 13 13:15:36 2015] [debug] Rendering cached template "layouts/default.html.ep".
+[Wed May 13 13:15:36 2015] [debug] 200 OK (0.001825s, 547.945/s).
+[Wed May 13 13:15:40 2015] [debug] GET "/".
+[Wed May 13 13:15:40 2015] [debug] Routing to controller "MyApp::Example" and action "welcome".
+[Wed May 13 13:15:40 2015] [debug] Rendering cached template "example/welcome.html.ep".
+[Wed May 13 13:15:40 2015] [debug] Rendering cached template "layouts/default.html.ep".
+[Wed May 13 13:15:40 2015] [debug] 200 OK (0.001801s, 555.247/s).
