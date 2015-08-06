@@ -1,6 +1,9 @@
 #!/usr/bin/perl
 #
 # import LOCK_* and SEEK_END constants
+# run this script in one terminal
+# THEN run it at the same time in another terminal, you will see it cannot lock it because
+# the file is already locked
 use Fcntl qw(:flock SEEK_END);
 
 sub lock {
@@ -13,7 +16,7 @@ sub unlock {
     flock( $fh, LOCK_UN ) or die "Cannot unlock mailbox - $!\n";
 }
 
-open( my $mbox, ">>", "/tmp/testfile" ) or die "Can't open mailbox: $!";
+open( my $mbox, ">", "/tmp/testfile" ) or die "Can't open mailbox: $!";
 
 my $msg = "testing";
 
