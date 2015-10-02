@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+
+use IO::Socket;
+use IO::Interface ':functions';
+
+my $sock = IO::Socket::INET->new(Proto=>'udp');
+my @interfaces = if_list($sock);
+foreach my $interface (@interfaces){
+  print "address = ", if_addr($sock,$interface[0]);
+}
