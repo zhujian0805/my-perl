@@ -31,8 +31,9 @@ open(QUEUE, "$LISTQ |") ||
   die "Can't get pipe to $LISTQ: $!\n";
 
 my $entry = <QUEUE>;	# skip single header line
-$/ = "";		# Rest of queue entries print on
-			# multiple lines.
+# treating empty lines as a terminator if set to the null string (an empty line cannot contain any spaces or tabs). so each record is treated as a entry, then below use the
+# moditier 'm' to match on multiple lines
+$/ = "";
 while ( $entry = <QUEUE> ) {
 	if ( $entry =~ / $email_addr$/m ) {
 		($qid) = split(/\s+/, $entry, 2);
