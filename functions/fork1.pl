@@ -28,6 +28,7 @@ my @children;
 foreach (@task) {
     my $pid = fork();
     if ($pid) {
+        print "Parent: ", $$, "\n";
         push @children, $pid;
     }
     else {
