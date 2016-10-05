@@ -31,7 +31,7 @@ foreach (@task) {
         push @children, $pid;
     }
     else {
-        sleep 5;
+        sleep 10;
         exit(0);
     }
 }
