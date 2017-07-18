@@ -25,12 +25,12 @@ use MyAgent;
 use Data::Dumper;
 
 my $ua = MyAgent->new();
-my $req = HTTP::Request->new(GET => "http://rabbitmq01.sample.net:15672/api/vhosts");
-$ua->set_credentials('guest', 'guest');
+my $req = HTTP::Request->new(GET => "https://admin.company.net/logon");
+$ua->set_credentials('jzhu', 'XXXXXXXX');
 my $result = $ua->request( $req );
 if ( not $result->is_success ) {
     print "Failed: " . $result->status_line . "\n";
     exit;
 }
 
-print Dumper $result;
+print Dumper $result->{_headers}->{'set-cookie'};
