@@ -3,7 +3,7 @@
 #
 #         FILE: ftp-test.pl
 #
-#        USAGE: ./ftp-test.pl  
+#        USAGE: ./ftp-test.pl
 #
 #  DESCRIPTION: test ftp
 #
@@ -24,9 +24,10 @@ use utf8;
 use Net::FTP;
 use Try::Tiny qw(try catch);
 
-my $ftp = Net::FTP->new("localhost") or die "Cannot connect to some.host.name: $@";
+my $ftp = Net::FTP->new("localhost")
+  or die "Cannot connect to some.host.name: $@";
 
-$ftp->login("jzhu", "123456");
+$ftp->login( "jzhu", "123456" );
 
 print "Those files are in /tmp\n";
 print "----------------------------\n";
@@ -35,7 +36,9 @@ foreach my $dir ( $ftp->ls("/tmp") ) {
 }
 
 my $ret = try {
-    $ftp->get("/tmp/testing-ftp", "/tmp/testing-ftp-got") or die 'with error:' . $@;
-} catch {
+    $ftp->get( "/tmp/testing-ftp", "/tmp/testing-ftp-got" )
+      or die 'with error:' . $@;
+}
+catch {
     warn "caught error: $_";
 };
