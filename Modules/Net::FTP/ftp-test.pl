@@ -35,9 +35,7 @@ foreach my $dir ( $ftp->ls("/tmp") ) {
 }
 
 my $ret = try {
-    $ftp->get("/tmp/testing-ftp", "/tmp/testing-ftp-got") or die "$@";
+    $ftp->get("/tmp/testing-ftp", "/tmp/testing-ftp-got") or die 'with error:' . $@;
 } catch {
-    "Failed to get file $@\n";
+    warn "caught error: $_";
 };
-
-print "Catched: ", $ret, "\n";
