@@ -32,7 +32,7 @@ my $ua = LWP::UserAgent->new;
 my $tree = HTML::TreeBuilder::XPath->new;
 
 my $cookie_jar = HTTP::Cookies->new(
-    file     => "./acookies.lwp",
+    file     => "./account.cookies",
     autosave => 1,
 );
 
@@ -66,9 +66,8 @@ binmode( $fh, ":utf8" );
 print $fh $res->decoded_content;
 
 $tree->parse_file( $filename );
-my @nodes = $tree->findnodes( '//p[@id="battletag-free"]' );
 
-print Dumper \@nodes;
+print Dumper $tree;
 
 
 
