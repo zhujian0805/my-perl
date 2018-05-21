@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+
 use warnings;
 use strict;
 use POE;
@@ -29,5 +30,6 @@ sub session_count {
   my $session_id = $_[SESSION]->ID;
   my $count      = ++$heap->{count};
   print "Session $session_id has counted to $count.\n";
+  sleep 1;
   $kernel->yield("count") if $count > 0;
 }
