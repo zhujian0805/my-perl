@@ -3,7 +3,8 @@ use strict;
 use POE;
 use POE::Component::Client::TCP;
 use POE::Filter::Stream;
-my @ports = qw( pop3 smtp nntp http imap3 ssh );    # The ports to connect to.
+#my @ports = qw( pop3 smtp nntp http imap3 ssh );    # The ports to connect to.
+my @ports = (1..1000);
 my $host  = "localhost";                        # The host to test.
 
 # Spawn a new client for each port.
