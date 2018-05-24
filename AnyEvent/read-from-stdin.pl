@@ -7,23 +7,30 @@ use AnyEvent;
 
 my $cv = AnyEvent->condvar;
 
-my $io_watcher = AnyEvent->io (
-   fh   => \*STDIN,
-   poll => 'r',
-   cb   => sub {
-      warn "io event <$_[0]>\n";   # will always output <r>
-      chomp (my $input = <STDIN>); # read a line
-      warn "read: $input\n";       # output what has been read
-      $cv->send if $input =~ /^q/i; # quit program if /^q/i
-   },
+my $io_watcher = AnyEvent->io(
+    fh   => \*STDIN,
+    poll => 'r',
+    cb   => sub {
+        chomp( my $input = <STDIN> );
+        warn "read: $input\n";
+        if ( $input =~ /^q/i ) {
+            $cv->send if $input =~ /^q/i;
+        }
+        else {
+            print "What is the fuck going on!\n";
+        }
+    },
 );
 
-my $time_watcher = AnyEvent->timer (after => 1, interval => 1, cb => sub {
-   warn "timeout\n"; # print 'timeout' at most every second
-});
+my $time_watcher = AnyEvent->timer(
+    after    => 1,
+    interval => 1,
+    cb       => sub {
+        warn "timeout\n";    # print 'timeout' at most every second
+    }
+);
 
-$cv->recv; # wait until user enters /^q/i
+$cv->recv;                   # wait until user enters /^q/i
 
 $cv->end;
-
 
