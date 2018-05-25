@@ -24,7 +24,7 @@ my $io_watcher = AnyEvent->io(
 
 my $time_watcher = AnyEvent->timer(
     after    => 1,
-    interval => 1,
+    interval => 5,
     cb       => sub {
         warn "timeout\n";    # print 'timeout' at most every second
     }
