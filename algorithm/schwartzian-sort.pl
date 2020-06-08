@@ -20,7 +20,7 @@ foreach my $col1 ( sort keys %hash ) {
     my @sorted =
       map  { $_->[0] }
       sort { $a->[1] <=> $b->[1] }
-      map  { [ $_, ( split(/-/) )[0] ] } ( keys $hash{$col1}{middle} );
+      map  { [ $_, ( split(/-/) )[0] ] } ( keys %{$hash{$col1}{middle}} );
 
     print Dumper \@sorted;
 
